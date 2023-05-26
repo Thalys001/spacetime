@@ -14,13 +14,13 @@ export async function GET(request: NextRequest) {
 
   const redirectURL = new URL('/', request.url)
 
-  console.log(token);
+  console.log(token)
 
-const cookieExpiresInSeconds = 60 * 60 * 24 * 30
+  const cookieExpiresInSeconds = 60 * 60 * 24 * 30
 
   return NextResponse.redirect(redirectURL, {
     headers: {
-      'Set-Cookie': `token=${token}; Path=/; max-age=${cookieExpiresInSeconds}`
-    }
+      'Set-Cookie': `token=${token}; Path=/; max-age=${cookieExpiresInSeconds}`,
+    },
   })
 }
