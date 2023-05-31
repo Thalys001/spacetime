@@ -1,4 +1,3 @@
-// import { api } from '@/lib/api'
 import { api } from '@/lib/api'
 import { NextRequest, NextResponse } from 'next/server'
 
