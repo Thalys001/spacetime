@@ -6,12 +6,14 @@ export async function GET(request: NextRequest) {
   const code = searchParams.get('code')
   console.log(code)
 
+  const redirectTo = request.cookies.get('redirectTo')?.value
+
   const registerResponse = await api.post('/register', {
     code,
   })
   const { token } = registerResponse.data
 
-  const redirectURL = new URL('/', request.url)
+  const redirectURL = redirectTo ?? new URL('/', request.url)
 
   console.log(token)
 
