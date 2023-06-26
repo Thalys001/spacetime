@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation'
 
 export function NewMemoryForm() {
   const router = useRouter()
+
   async function handleCreateMemory(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
@@ -22,8 +23,10 @@ export function NewMemoryForm() {
       uploadFormData.set('file', fileToUpload)
 
       const uploadResponse = await api.post('/upload', uploadFormData)
+      console.log(uploadResponse, 'uploadResponse')
 
       coverUrl = uploadResponse.data.fileUrl
+      console.log(coverUrl, 'coverUrl')
     }
     const token = Cookie.get('token')
 
